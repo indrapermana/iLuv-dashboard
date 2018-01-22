@@ -1,0 +1,39 @@
+<% include ../partials/header %>
+	<h1>Add Products</h1>
+	<form enctype="multipart/form-data" method="post" action="/products/add">
+	  <div class="form-group">
+	    <label>Name</label>
+	    <input type="text" class="form-control" name="name" placeholder="Product name">
+	  </div>
+	  <div class="form-group">
+	    <label>Url site</label>
+	    <input type="text" class="form-control" name="url_site" placeholder="Url site">
+	  </div>
+	  <div class="form-group">
+	    <label>Event</label>
+	    <select name="event" class="form-control">
+	    	<% for(var i=0; i<events.length; i++) {%>
+   				<option value="<%= events[i].name %>"><%= events[i].name %></option>
+			<% } %>
+	    </select>
+	  </div>
+	  <div class="form-group">
+	    <label>Site name</label>
+	    <input type="text" class="form-control" name="site_name" placeholder="Site name">
+	  </div>
+	  <div class="form-group">
+	    <label>Price</label>
+	    <input type="text" class="form-control" name="price" placeholder="Price">
+	  </div>
+	  <div class="form-group">
+	    <label>Description</label>
+	    <textarea class="form-control" name="description" placeholder="Description"></textarea>
+	  </div>
+	  <div class="form-group">
+	    <label>Image</label>
+	    <input type="file" class="form-control" name="img">
+	  </div>
+	  <button type="submit" class="btn btn-default">Submit</button>
+	   <a class="btn btn-danger" href="/products">Close</a>
+	</form>
+<% include ../partials/footer %>

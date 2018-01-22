@@ -1,0 +1,29 @@
+<% include ../partials/header %>
+<a href="/products" class="btn btn-default">Go Back</a>
+<h1><%=product.name %></h1>
+<div class="row product">
+    <div class="col-md-4">
+        <img src="/images/uploads/<%= product.img %>">
+    </div>
+    <div class="col-md-8">
+        <ul class="list-group">
+            <li class="list-group-item"><strong>Product name:</strong> <%= product.name %></li>
+            <li class="list-group-item"><strong>Event:</strong> <%= product.event %></li>
+            <li class="list-group-item"><strong>Url site:</strong> <%= product.url_site %></li>
+            <li class="list-group-item"><strong>Site name:</strong> <%= product.site_name %></li>
+            <li class="list-group-item"><strong>Price:</strong> <%= product.price %></li>
+        </ul>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <h4>Description</h4>
+        <p><%= product.description %></p>
+    </div>
+</div>
+<br />
+<hr />
+<a href="/products/edit/<%= id %>" class="btn btn-default">Edit</a> 
+<a href="#" data-id="<%= id %>" class="delete-product btn btn-danger">Delete</a>
+<% include ../partials/footer %>
