@@ -1,0 +1,114 @@
+FORMAT: 1A
+HOST: https://enigmatic-hollows-84120.herokuapp.com/api
+
+# Looklyke.me
+
+Looklyke.me api is a simple API allowing consumers to view happening products for endorsement.
+
+## Registration [/register]
+
+### Register [POST]
+
++ Request (application/json)
+
+        {
+            "first_name": "First name",
+            "last_name": "Last name",
+            "email": "Your email",
+            "password": "Your password"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+    + Body
+
+            {
+                "errors": "",
+                "data": {
+                    "uid": "auto generation uid",
+                    "email": "your email",
+                    "first_name": "your first name",
+                    "last_name": "your last name"
+                }
+            }
+
+## Authentication [/login]
+
+### Login [POST]
+
++ Request (application/json)
+
+        {
+            "email": "Your email",
+            "password": "Your password"
+        }
+
++ Response 200 (application/json)
+
+    + Headers
+
+    + Body
+
+            {
+                "errors": "",
+                "data": {
+                    "uid": "auto generation uid",
+                    "displayName": null,
+                    "photoURL": null,
+                    "email": "your email",
+                    "emailVerified": false,
+                    "phoneNumber": null,
+                    "isAnonymous": false,
+                    "providerData": [
+                        {
+                            "uid": "will be email",
+                            "displayName": null,
+                            "photoURL": null,
+                            "email": "email",
+                            "phoneNumber": null,
+                            "providerId": "password"
+                        }
+                    ],
+                    "apiKey": "AIzaSyCyxGKMh0oA45q0EpnfqRJN6RERXW_Fq7Q",
+                    "appName": "[DEFAULT]",
+                    "authDomain": "lakon-a6cdc.firebaseapp.com",
+                    "stsTokenManager": {
+                        "apiKey": "AIzaSyCyxGKMh0oA45q0EpnfqRJN6RERXW_Fq7Q",
+                        "refreshToken": "AEoYo8uVC1SBE_naxUjAp5j2PzmjRoD2kDCpv5ijwfFdtO0VkX-bq-jJZ_NFImmZvfdnCUwx5nwm7Ea6TXG3cBQvN0LWBYcpPLsxo0pQVevktjwvbwPd9tkqi2VFbkLEjv2gA6__AG6c20lLYoOR36C8espKD5s5bhPtlvKzRNZkj663c8Sa2730xloptgqyKOCXVq3s0Wc5-nY4Xw9ImxWgtyguJeX85w",
+                        "accessToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjZkNWZmYzQzNTc2ZjA4ZjFmZjBiMjU2YzMyZWQ4MGUzOGU1Y2U3YzcifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vbGFrb24tYTZjZGMiLCJhdWQiOiJsYWtvbi1hNmNkYyIsImF1dGhfdGltZSI6MTUxNjg5NTU2OSwidXNlcl9pZCI6IjA4SmRqTExKSlhQRVZ1VGxBdjZxZnVwcE9BRTMiLCJzdWIiOiIwOEpkakxMSkpYUEVWdVRsQXY2cWZ1cHBPQUUzIiwiaWF0IjoxNTE2ODk1NTY5LCJleHAiOjE1MTY4OTkxNjksImVtYWlsIjoiaW5kcmFwZXJtYW5hLmp0azEwQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJlbWFpbCI6WyJpbmRyYXBlcm1hbmEuanRrMTBAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.n8EcXwIjhbXaBYzTVELVenLNILSTX-QeO7RkS6L0DSurQa7RYnqTRi5xzm9CaIZlfVALQoDkG1R1NR4mLmCc_XTv4QpNEQubDGrFMX7rcR9tBS6JY204_m2z4nqlp4_tLrfUiqldYCw9an28kCMpr7OwLEnqQDx0gFJuqAAUkQz2s2o1HLQ-CoZbGl612wj6v5E6kvKAISB3m1_YhVUULSm6u78cDSYB4bRnttZg7bgdDUVfYzWbhYqtQe1Q2LRWrptFQefYlTIfg0iqA4Zvz4OYsoO6rYnKKFZM8D2O3sqtq2B-J5zwFAM1E03xVOpxNs5ZLbfP9f7OX5JE_VOpTQ",
+                        "expirationTime": 1516899169020
+                    },
+                    "redirectEventId": null,
+                    "lastLoginAt": "1516895560000",
+                    "createdAt": "1516634725000"
+                }
+            }
+            
+
+## Product Collection [/products]
+
+### List all products [POST]
+
++ Response 200 (application/json)
+
+    + Headers
+
+    + Body
+
+            {
+                "errors": "",
+                "data": [
+                    {
+                        "id": "-L3SwPTzDTyULBXH5KlL",
+                        "name": "Baju biru",
+                        "description": "Test baju biru description.",
+                        "event": "AngularJS",
+                        "img": "e387c7e00c5cac2ff8d0e520867da752",
+                        "price": "30000",
+                        "site_name": "Lazada",
+                        "url_site": "www.lazada.com"
+                    }
+                ]
+            }
