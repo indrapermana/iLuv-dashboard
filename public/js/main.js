@@ -34,4 +34,22 @@ $(document).ready(function(){
             });
         }
     });
+
+    $('.delete-brand').on('click', function(){
+        var id = $(this).data('id');
+        var url = '/brands/delete/'+id;
+        if (confirm('Delete brand?')){
+            $.ajax({
+                url: url,
+                type: 'DELETE',
+                success: function(result){
+                    console.log('Deleting brand...');
+                    window.location.href='/brands';
+                },
+                error: function(err){
+                    console.log('err');
+                }
+            });
+        }
+    });
 });

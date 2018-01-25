@@ -22,6 +22,8 @@ var routes = require('./routes/index');
 var products = require('./routes/products');
 var events = require('./routes/events');
 var users = require('./routes/users');
+var api = require('./routes/api');
+var brands = require('./routes/brands');
 
 // Init App
 var app = express();
@@ -84,6 +86,8 @@ app.use('/', routes);
 app.use('/products', products);
 app.use('/events', events);
 app.use('/users', users);
+app.use('/api', api);
+app.use('/brands', brands);
 
 // Set Port
 app.set('port', (process.env.PORT || 3000));

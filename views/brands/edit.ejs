@@ -1,0 +1,11 @@
+<% include ../partials/header %>
+<h1>Add Brand</h1>
+<form method="post" action="/brands/edit/<%= id %>">
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text" class="form-control" name="name" value="<%= brand.name %>" placeholder="Brand Name">
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+   <a class="btn btn-danger" href="/brands">Close</a>
+</form>
+<% include ../partials/footer %>

@@ -4,9 +4,9 @@ var firebase = require('firebase');
 var database = firebase.database();
 
 router.get('/', function (req, res, next) {
-	var eventsRef = database.ref('events');
+	var brandsRef = database.ref('brands');
 
-	eventsRef.once('value', function (snapshot) {
+	brandsRef.once('value', function (snapshot) {
 		var data = [];
 		snapshot.forEach(function (childSnapshot) {
 			var key = childSnapshot.key;
@@ -16,12 +16,12 @@ router.get('/', function (req, res, next) {
 				name: childData.name
 			});
 		});
-		res.render('events/index', { events: data });
+		res.render('brands/index', { brands: data });
 	});
 });
 
 router.get('/add', function (req, res, next) {
-	res.render('events/add');
+	res.render('brands/add');
 });
 
 router.post('/add', function (req, res, next) {
@@ -29,40 +29,40 @@ router.post('/add', function (req, res, next) {
 		name: req.body.name
 	}
 	console.log(event);
-	database.ref('events').push().set(event);
+	database.ref('brands').push().set(event);
 
-	req.flash('success_msg', 'Event Saved');
-	res.redirect('/events');
+	req.flash('success_msg', 'Brand Saved');
+	res.redirect('/brands');
 });
 
 router.get('/edit/:id', function (req, res, next) {
 	var id = req.params.id;
 	
-	var eventRef = database.ref('/events/' + id);
-	eventRef.once('value', function (snapshot) {
-		var event = snapshot.val();
-		res.render('events/edit', { event: event, id: id });
+	var brandRef = database.ref('/brands/' + id);
+	brandRef.once('value', function (snapshot) {
+		var brand = snapshot.val();
+		res.render('brands/edit', { brand: brand, id: id });
 	});
 });
 
 router.post('/edit/:id', function (req, res, next) {
 	var id = req.params.id;
-	var event = {
+	var brand = {
 		name: req.body.name
 	}
 
-	var eventRef = database.ref('/events/' + id);
-	eventRef.update(event);
+	var brandRef = database.ref('/brands/' + id);
+	brandRef.update(brand);
 
-	res.redirect('/events');
+	res.redirect('/brands');
 });
 
 router.delete('/delete/:id', function (req, res, next) {
 	var id = req.params.id;	
-	var eventRef = database.ref('/events/' + id);
-	eventRef.remove();
+	var brandRef = database.ref('/brands/' + id);
+	brandRef.remove();
 	
-	req.flash('success_msg', 'Event removed');
+	req.flash('success_msg', 'Brand removed');
 	res.send(200);
 });
 module.exports = router;
